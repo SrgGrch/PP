@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\srggr\Projects\uni\PP\1st-subgroup\Grechishnikov\OpenMP\OpenMP\OpenMP\Source.cpp(12,13): warning C4326:  возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\srggr\Projects\uni\PP\1st-subgroup\Grechishnikov\OpenMP\OpenMP\OpenMP\Source.cpp(28,78): error C3001:  target: требуется имя директивы OpenMP
