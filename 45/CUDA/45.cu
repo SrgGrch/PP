@@ -126,10 +126,13 @@ bool isPrime(int x)
 
 	return true;
 }
-
+	
 int main(void)
 {
-	int Nstart = 2990000;
+	int Nstart;
+		
+	printf("¬ведите начальное число: ");
+	scanf("%d", &Nstart);
 	int N = Nstart;
 	int batchSize = 1024;
 	int* x, * d_x, * y, * d_y;
