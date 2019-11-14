@@ -4,12 +4,18 @@
 #include <cuda.h>
 
 #include <memory>
-#include <conio.h>
 #include <iostream>
 #include <cassert>
 #include <stdio.h>
 #include <algorithm>
+#include <ctime>
+#include <time.h>
 
+
+/*
+45.     Найти наименьшее простое число, большее заданного N такое, что начало, середина и 
+окончание его десятичного представления являются простыми числами (например, число 8353 – 83 5 3)
+*/
 
 __global__ void findPrime(int n, int* x, int* y)
 {
@@ -67,9 +73,64 @@ __global__ void findPrime(int n, int* x, int* y)
 	y[i] = 1;
 }
 
+bool isPrime(int x)
+{
+	for (int j = 3; j <= x / 2; j++) {
+		if (x % j == 0) return false;
+	}
+
+
+	int number = x;
+	int digitsCounter = 0;
+
+	while (number != 0) {
+		digitsCounter++;
+		number /= 10;
+	}
+
+	if (digitsCounter <= 2) return false;
+
+	//check end
+	if ((x % 10) <= 2) return false;
+
+	for (int j = 2; j <= (x % 10) / 2; j++) {
+		if ((x % 10) % j == 0) return false;
+	}
+
+	int powRes = 10;
+
+	for (int j = 0; j < digitsCounter - 2; j++) {
+		powRes *= 10;
+	}
+
+	// check start
+	if ((x / powRes) <= 2) return false;
+
+	for (int j = 2; j <= (x / powRes) / 2; j++) {
+		if ((x / (powRes)) % j == 0) return false;
+	}
+
+	powRes = 10;
+
+	for (int j = 0; j < digitsCounter - 3; j++) {
+		powRes *= 10;
+	}
+	// Check middle
+	int middle = (x / 10) % powRes;
+
+	if (middle <= 2) return false;
+
+	for (int j = 2; j <= middle / 2; j++) {
+		if (middle % j == 0) return false;
+	}
+
+	return true;
+}
+
 int main(void)
 {
-	int N = 30109;
+	int Nstart = 2990000;
+	int N = Nstart;
 	int batchSize = 1024;
 	int* x, * d_x, * y, * d_y;
 	x = (int*)malloc(batchSize * sizeof(int));
@@ -79,6 +140,8 @@ int main(void)
 	cudaMalloc(&d_y, batchSize * sizeof(int));
 
 	bool isPrimeFound = false;
+
+	long double start = clock();
 
 	while (!isPrimeFound) {
 		if (N % 2 == 0) N++;
@@ -94,8 +157,8 @@ int main(void)
 		cudaMemcpy(d_x, x, batchSize * sizeof(int), cudaMemcpyHostToDevice);
 		cudaMemcpy(d_y, y, batchSize * sizeof(int), cudaMemcpyHostToDevice);
 
-		dim3 threadsPerBlock(32, 32);
-		dim3 numBlocks(batchSize / threadsPerBlock.x, batchSize / threadsPerBlock.y);
+		dim3 threadsPerBlock(1024, 1, 1);
+		dim3 numBlocks(batchSize / threadsPerBlock.x, 1, 1);
 
 		findPrime <<<numBlocks, threadsPerBlock>>> (N, d_x, d_y);
 		
@@ -104,16 +167,30 @@ int main(void)
 		for (int i = 0; i < batchSize; i++) {
 			if (y[i] == 1) {
 				isPrimeFound = true;
-				printf("%d ", x[i]);
+				printf(" Найденное число: %d \n", x[i]);
+				printf("GPU: %lf ms\n", (double)(clock() - start) / CLOCKS_PER_SEC * 1000);
 				break;
 			}
 		}
 		N = x[batchSize - 1];
 	}
 
+	start = clock();
+
+	while (true) {
+		if (Nstart % 2 == 0) N++;
+
+		if (isPrime(Nstart)) {
+			printf(" Найденное число: %d \n", Nstart);
+			printf("CPU: %lf ms\n", (double)(clock() - start) / CLOCKS_PER_SEC * 1000);
+			break;
+		}
+		Nstart++;
+	}
+
+
 	cudaFree(d_x);
 	cudaFree(d_y);
 	free(x);
 	free(y);
-	//_getch();
 }
