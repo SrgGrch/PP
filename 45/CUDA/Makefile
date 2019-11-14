@@ -222,7 +222,7 @@ check.deps:
 ifeq ($(SAMPLE_ENABLED),0)
         @echo "Sample will be waived due to the above missing dependencies"
 else
-        @echo "Sample is ready - all dependencies have been met"
+	@echo "Sample is ready - all dependencies have been met"
 endif
 
 asyncAPI.o:45.cu
