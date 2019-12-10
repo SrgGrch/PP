@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp" />
+    <ClCompile Include="n_body_omp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\CycleTimer.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\NBody.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\VectorMath.h" />
+    <ClInclude Include="CycleTimer.h" />
+    <ClInclude Include="NBody.h" />
+    <ClInclude Include="VectorMath.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
