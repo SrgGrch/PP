@@ -1,4 +1,8 @@
 ﻿  n_body_omp.cpp
-C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\VectorMath.h(23,2): warning C4091:  typedef : пропускается слева от "Vector3D", когда ни одна переменная не объявлена
-C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(35,20): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\VectorMath.h(22,2): warning C4091:  typedef : пропускается слева от "Vector2D", когда ни одна переменная не объявлена
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(18,10): warning C4473:  "printf": передано недостаточно аргументов для строки формата
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(18,10): message :  заполнители и их параметры ожидают переменное число аргументов в количестве 11, но было предоставлено 8
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(18,10): message :  отсутствующий вариативный аргумент "9" требуется для строки форматирования "%f"
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(36,28): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\srggr\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp(51,20): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
   OpenMP.vcxproj -> C:\Users\srggr\Projects\uni\PP\1st-subgroup\Grechishnikov\OpenMP\OpenMP\Debug\OpenMP.exe
