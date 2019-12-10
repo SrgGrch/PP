@@ -15,8 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\NBody.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\VectorMath.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\CycleTimer.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

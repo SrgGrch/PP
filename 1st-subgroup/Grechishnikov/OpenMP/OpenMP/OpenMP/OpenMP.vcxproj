@@ -18,6 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\n_body_omp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\CycleTimer.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\NBody.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\..\Desktop\del\Parallel-N-Body-Problem\openMp\VectorMath.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{04BC8E06-4546-498C-B78F-6DE7F625B4EA}</ProjectGuid>
@@ -124,9 +132,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
